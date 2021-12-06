@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if dato %}
+<h2>Crear registro</h2>
+{% else %}
+<h2>Editar registro</h2>
+{% endif %}
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a href="{% url 'articulos:index' %}" class="btn btn-danger">Cancelar</a>
+</form>
+{% endblock %}
